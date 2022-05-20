@@ -60,7 +60,7 @@ def train(model_name, num_epochs):
 
     if epoch % 10 == 0 :
       model.eval()
-      torch.save(model.state_dict(), model_name+f'_20220520_{epoch}.pt')
+      torch.save(model.state_dict(), './ptfiles/'+model_name+f'_20220520_{epoch}.pt')
       test_loss = 0.
 
       for batch_X, _ in test_loader:
@@ -89,4 +89,4 @@ if __name__ == "__main__":
     epochs = sys.argv[2]
 
 
-    train(model_name, epochs)
+    train(model_name, int(epochs))
