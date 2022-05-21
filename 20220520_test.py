@@ -22,6 +22,7 @@ def train(model_name, num_epochs):
 
   train_loader = torch.utils.data.DataLoader(dataset = train_dataset, batch_size = batch_size, shuffle=True)
   test_loader = torch.utils.data.DataLoader(dataset = test_dataset, batch_size = batch_size, shuffle=False)
+  scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, [75,125], gamma=0.1)
   # About Model
   if(model_name == "AE"):
     model = AutoEncoder(28*28, 64, 32)
@@ -55,6 +56,7 @@ def train(model_name, num_epochs):
 
       train_loss.backward()
       optimizer.step()
+      scheduler.step()
 
     train_loss_arr.append(epoch_loss / len(train_loader.dataset))
 
