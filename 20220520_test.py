@@ -31,7 +31,7 @@ def train(model_name, num_epochs):
     model = NoiseEdgeAutoEncoder(28*28, 64, 32)
 
   model = model.cuda()
-  learning_rate = 0.01
+  learning_rate = 0.1
   optimizer = optim.Adam(model.parameters(), lr = learning_rate)
   scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, [75,125, 250, 500, 750], gamma=0.1)
 
