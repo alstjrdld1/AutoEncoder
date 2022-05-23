@@ -19,8 +19,8 @@ def train(model_name, num_epochs):
 #   train_dataset = datasets.MNIST(root='./data', train=True, transform = transforms.ToTensor(), download = True)
 #   test_dataset = datasets.MNIST(root='./data' , train=False, transform = transforms.ToTensor())
   transform = transforms.ToTensor()
-  train_dataset = datasets.CIFAR10('./data', train = True, download=True, transform=transform)
-  test_dataset = datasets.CIFAR10('./data', train=False, download=True, transform=transform)
+  train_dataset = datasets.CIFAR10('./data', train = True, transform=transform)
+  test_dataset = datasets.CIFAR10('./data', train=False, transform=transform)
   
   batch_size = 512
 
@@ -40,7 +40,7 @@ def train(model_name, num_epochs):
   model = model.cuda()
   learning_rate = 0.01
   optimizer = optim.Adam(model.parameters(), lr = learning_rate)
-  scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, [75,125, 250, 500, 750], gamma=0.1)
+#   scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, [75,125, 250, 500, 750], gamma=0.1)
 
   Loss = nn.MSELoss()
 
@@ -64,7 +64,7 @@ def train(model_name, num_epochs):
 
       train_loss.backward()
       optimizer.step()
-      scheduler.step()
+    #   scheduler.step()
 
     train_loss_arr.append(epoch_loss / len(train_loader.dataset))
 
