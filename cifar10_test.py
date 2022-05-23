@@ -71,7 +71,7 @@ def train(model_name, num_epochs):
     if epoch % 10 == 0 :
       model.eval()
       today = sys.argv[3]
-      torch.save(model.state_dict(), './ptfiles/'+ today + "_"+model_name+f'_20220520_{epoch}.pt')
+      torch.save(model.state_dict(), './ptfiles/'+ today + "_"+model_name+f'_cifar10_{epoch}.pt')
       test_loss = 0.
 
       for batch_X, _ in test_loader:
