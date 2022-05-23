@@ -18,13 +18,13 @@ import sys
 def train(model_name, num_epochs):
 #   train_dataset = datasets.MNIST(root='./data', train=True, transform = transforms.ToTensor(), download = True)
 #   test_dataset = datasets.MNIST(root='./data' , train=False, transform = transforms.ToTensor())
-  train_dataset = datasets.CIFAR10('./data', train = True, download=True)
-  test_dataset = datasets.CIFAR10('./data', train=False, download=True)
-
+  transform = transforms.ToTensor()
+  train_dataset = datasets.CIFAR10('./data', train = True, download=True, transform=transform)
+  test_dataset = datasets.CIFAR10('./data', train=False, download=True, transform=transform)
   
   batch_size = 512
 
-  train_loader = torch.utils.data.DataLoader(dataset = train_dataset, batch_size = batch_size, shuffle=True, num_workers = 2)
+  train_loader = torch.utils.data.DataLoader(dataset = train_dataset, batch_size = batch_size, shuffle=True, num_workers=2)
   test_loader = torch.utils.data.DataLoader(dataset = test_dataset, batch_size = batch_size, shuffle=False, num_workers=2)
 
   # About Model
