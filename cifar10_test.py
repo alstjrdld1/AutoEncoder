@@ -18,8 +18,8 @@ import sys
 def train(model_name, num_epochs):
 #   train_dataset = datasets.MNIST(root='./data', train=True, transform = transforms.ToTensor(), download = True)
 #   test_dataset = datasets.MNIST(root='./data' , train=False, transform = transforms.ToTensor())
-  train_dataset = datasets.CIFAR10('./data', train = True, download=True, transform=transforms)
-  test_dataset = datasets.CIFAR10('./data', train=False, download=True, transform=transforms)
+  train_dataset = datasets.CIFAR10('./data', train = True, download=True)
+  test_dataset = datasets.CIFAR10('./data', train=False, download=True)
 
   
   batch_size = 512
