@@ -2,7 +2,7 @@ from re import L
 import torch.nn as nn 
 
 class FCAutoEncoder(nn.Module):
-    def __init__(self, input_dim, hidden_dim1, hidden_dim2):
+    def __init__(self):
         super(FCAutoEncoder, self).__init__()
         
         self.cnn_layer1 = nn.Sequential(
